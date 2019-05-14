@@ -3,4 +3,5 @@ from django.urls import path
 
 urlpatterns = [
     path('',views.post_list,name='post_list'),
+    path('no_disponibles',views.no,name='no'),
 ]

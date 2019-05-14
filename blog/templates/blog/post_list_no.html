@@ -9,10 +9,9 @@
     <title>VIVO-PAÑOL</title>
 </head>
 <body>
-        <a href="{% url 'no' %}">Inicio</a>
-    <h1>DISPONIBLES</h1>
+    <h1>NO DISPONIBLES</h1>
     {% for Implementodep in Implementodeps %}
-        {% if Implementodep.estado == 'DISPONIBLE' %}
+        {% if Implementodep.estado == 'NO_DISPONIBLE' %}
             Folio: {{ Implementodep.folio }}
             <br>
                 {% if Implementodep.implemento == 'PALETAS' %}
