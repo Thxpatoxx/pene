@@ -1,12 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>VIVO-ROSA</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/post_list.css' %}" />
+    <title>VIVO-PAÑOL</title>
 </head>
 <body>
-    hola
+    {% for Implementodep in Implementodeps %}
+        {% if Implementodep.estado == 'DISPONIBLE' %}
+            Folio: {{ Implementodep.folio }}
+            <br>
+                {% if Implementodep.implemento == 'PALETAS' %}
+                    <img id="imgestado" src="{% static 'img/paleta.jpg' %}" alt="">
+                {% elif Implementodep.implemento == 'PELOTA_PINPONG' %}
+                    <img id="imgestado" src="{% static 'img/pelota_ping.jpg' %}" alt="">
+                {% elif Implementodep.implemento == 'PELOTA_FOOTBALL' %}
+                    <img id="imgestado" src="{% static 'img/pelota_futbol.jpg' %}" alt="">
+                {% elif Implementodep.implemento == 'PELOTA_BASCKETBALL' %}
+                    <img id="imgestado" src="{% static 'img/pelota_bas.jpg' %}" alt="">
+                {% elif Implementodep.implemento == 'CANCHA' %}
+                    <img id="imgestado" src="{% static 'img/cancha.png' %}" alt="">
+                {% endif %}
+            <br>
+            Estado: {{ Implementodep.estado  }}
+            <br>
+            <hr>
+        {% endif %}
+    {% endfor %}
+
 </body>
 </html>
