@@ -6,31 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/post_list.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/menu.css' %}" />
     <title>VIVO-PAÑOL</title>
 </head>
 <body>
-    <h1>NO DISPONIBLES</h1>
-    {% for Implementodep in Implementodeps %}
-        {% if Implementodep.estado == 'NO_DISPONIBLE' %}
-            Folio: {{ Implementodep.folio }}
-            <br>
-                {% if Implementodep.implemento == 'PALETAS' %}
-                    <img id="imgestado" src="{% static 'img/paleta.jpg' %}" alt="">
-                {% elif Implementodep.implemento == 'PELOTA_PINPONG' %}
-                    <img id="imgestado" src="{% static 'img/pelota_ping.jpg' %}" alt="">
-                {% elif Implementodep.implemento == 'PELOTA_FOOTBALL' %}
-                    <img id="imgestado" src="{% static 'img/pelota_futbol.jpg' %}" alt="">
-                {% elif Implementodep.implemento == 'PELOTA_BASCKETBALL' %}
-                    <img id="imgestado" src="{% static 'img/pelota_bas.jpg' %}" alt="">
-                {% elif Implementodep.implemento == 'CANCHA' %}
-                    <img id="imgestado" src="{% static 'img/cancha.png' %}" alt="">
-                {% endif %}
-            <br>
-            Estado: {{ Implementodep.estado  }}
-            <br>
-            <hr>
+    <div class="menu">
+        <center><img id="logo" src="{% static 'img/VIVOPAÑOL_LOGO.png' %}" alt=""></center>
+        {% if user.is_authenticated %}
+        <div class="navbar">
+            <a href="{% url 'post_list' %}">DISPONIBLES</a> 
+            <a class="active" href="{% url 'no' %}">NO DISPONIBLES</a> 
+        </div>
         {% endif %}
-    {% endfor %}
-
+    </div>
+    <div class="contenedor">
+        {% for Implementodep in Implementodeps %}
+            {% if Implementodep.estado == 'NO DISPONIBLE' %}
+                <div class="caja">
+                    <a class="nolinea" href="{% url 'post_edit' pk=Implementodep.pk %}">
+                        ID: {{Implementodep.pk}}
+                        <br>
+                        Tipo: {{ Implementodep.implemento }}
+                        <br>
+                            {% if Implementodep.implemento == 'PALETAS' %}
+                                <img id="imgestado" src="{% static 'img/paleta.png' %}" alt="">
+                            {% elif Implementodep.implemento == 'PELOTA PINPONG' %}
+                                <img id="imgestado" src="{% static 'img/pelota_ping.png' %}" alt="">
+                            {% elif Implementodep.implemento == 'PELOTA FOOTBALL' %}
+                                <img id="imgestado" src="{% static 'img/pelota_futbol.png' %}" alt="">
+                            {% elif Implementodep.implemento == 'PELOTA BASCKETBALL' %}
+                                <img id="imgestado" src="{% static 'img/pelota_bas.png' %}" alt="">
+                            {% elif Implementodep.implemento == 'CANCHA' %}
+                                <img id="imgestado" src="{% static 'img/cancha.png' %}" alt="">
+                            {% endif %}
+                        <br>
+                        Estado: {{ Implementodep.estado  }}
+                        <br>
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
+        {% if user.is_authenticated %}
+        <div class="caja">
+            <a class="nolinea" href="{% url 'post_new' %}" class="top-menu">
+                <h1>+</h1>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    {% if user.is_authenticated %}
+    {% else %}
+    <center><a href="#" class="myButton">Administración</a></center>
+    {% endif %}
+    <footer>
+            <table>
+                <tr>
+                    <td>&#9993; <b>Email</b></td>
+                    <td>
+                        <a href="mailto:VivoPañol@gmail.com">
+                                VivoPañol@gmail.com
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&#9742; <b>Telefono</b></td>
+                    <td>
+                        <a href="tel:+56920202020">
+                                +569 2020 2020
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <b>&copy; Todos los derechos reservados.</b> 
+                    </td>
+                </tr>
+            </table>
+        </footer> 
 </body>
 </html>

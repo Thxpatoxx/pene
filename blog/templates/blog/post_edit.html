@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/post_list.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/menu.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/mena.css' %}" />
+    <title>VIVO-PAÑOL</title>
+</head>
+<body>
+    <div class="menu">
+        <center><img id="logo" src="{% static 'img/VIVOPAÑOL_LOGO.png' %}" alt=""></center>
+        <div class="navbar">
+            <a href="{% url 'post_list' %}">DISPONIBLES</a> 
+            <a href="{% url 'no' %}">NO DISPONIBLES</a> 
+        </div>
+    </div>
+    <h1>Editor</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="myButton">Guardar</button>
+    </form>
+</body>
+</html>

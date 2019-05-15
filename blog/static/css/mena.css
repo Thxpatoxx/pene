@@ -1,0 +1,64 @@
+@font-face{
+  font-family: "lt1";
+  src: url("./orange juice 2.0.ttf");
+}
+form{
+  text-align: center;
+  background-color: #8f290060;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  border-radius: 15px 15px 15px 15px;
+  -moz-border-radius: 15px 15px 15px 15px;
+  -webkit-border-radius: 15px 15px 15px 15px;
+  border: 7px double #8f2800;
+}
+h1{
+  font-family: "lt1";
+  text-align: center;
+  font-size: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+select{
+  font-family: "lt1";
+  font-size: 30px;
+  background-color: #8f2800;
+}
+textarea{
+  font-family: "lt1";
+  font-size: 30px;
+  height: 200px;
+  margin-bottom: 10px;
+  background-color: #8f2800;
+}
+.fuck{
+  font-family: "lt1";
+  text-align: center;
+  font-size: 50px;
+}
+input{
+  font-family: "lt1";
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+label{
+  font-family: "lt1";
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.myButton{
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+@media screen and (max-width: 500px) {
+  input{
+    max-width: 97%;
+  }
+  textarea{
+    max-width: 97%;
+  }
+  select{
+    max-width: 97%;
+  }
+}
